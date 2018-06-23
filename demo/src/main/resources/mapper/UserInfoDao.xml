@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserInfoDao">
+	<!--<resultMap id="BankInfo" type="com.example.demo.entity.BankInfo">-->
+	        <!--<id column="bank" property="bank" jdbcType="VARCHAR"/>-->
+	        <!--<result column="bankAccount" property="bankAccount" jdbcType="VARCHAR"/>-->
+	        <!--<result column="subBank" property="subBank" jdbcType="VARCHAR"/>-->
+	    <!--</resultMap>-->
+	<resultMap id="UserInfo" type="com.example.demo.entity.UserInfo">
+		   <id column="name" property="name" jdbcType="VARCHAR"></id>
+		   <id column="phoe" property="phone" jdbcType="VARCHAR" ></id>
+		   <id column="IDCard" property="idCard" jdbcType="VARCHAR"></id>
+		  <id column="school" property="school" jdbcType="VARCHAR" ></id>
+		 <id column="schoolAddr" property="schoolAddr" jdbcType="VARCHAR" ></id>
+		 <id column="education" property="education" jdbcType="VARCHAR" ></id>
+		 <id column="qq" property="qq" jdbcType="VARCHAR" ></id>
+		 <id column="webchat" property="webchat" jdbcType="VARCHAR" ></id>
+		<id column="bank" property="bank" jdbcType="VARCHAR" />
+		<result column="bankAccount" property="bankAccount" jdbcType="VARCHAR" />
+		<result column="subBank" property="subBank" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="queryUserInfo" resultType="UserInfo">
+	 SELECT id,NAME,a.phone,a.IDCard,a.school,a.schoolAddr,a.education,a.qq,a.webchat,b.`bank`,b.`bankAccount`,b.`bank`,b.`subBank`,
+	 	 d.`contactName1`,d.`contactPhone1`,d.relation1,d.contactName2,d.contactPhone2,d.relation2
+	 	  FROM tbl_user_info a
+	 	 LEFT JOIN TBL_BANK_INFO b ON a.phone=b.phone
+		LEFT JOIN tbl_user_contacts d  ON a.`phone`=d.`phone`
+	 	 where 1=1
+		<if test="name != null and  name !=''">
+			and a.name =#{name}
+		</if>
+		<if test="phone != null and  phone !=''">
+				and a.phone =#{phone}
+			</if>
+	</select>
+	<select id="listUserInfoPage" resultType="com.example.demo.entity.UserInfo">
+		  SELECT id,NAME,a.phone,a.IDCard,a.school,a.schoolAddr,a.education,a.qq,a.webchat,b.`bank`,b.`bankAccount`,b.`bank`,b.`subBank`
+		  	 	  ,d.`contactName1`,d.`contactPhone1`,d.relation1,d.contactName2,d.contactPhone2,d.relation2
+		  	 	  FROM tbl_user_info a
+		  	 	 LEFT JOIN TBL_BANK_INFO b ON a.phone=b.phone
+		  		LEFT JOIN tbl_user_contacts d  ON a.`phone`=d.`phone`
+		  	 	 WHERE 1=1
+	</select>
+	<select id="queryUserInfoById" resultType="java.util.Map">
+      SELECT a.name,a.phone,a.IDCard,a.`school`,a.`schoolAddr`,a.`education`,a.`qq`,a.`webchat`  ,
+      b.`contactPhone1`,b.`contactName1`,b.`relation1`,b.contactPhone2,b.contactName2,b.relation1,
+      d.`AlipayAccount`,d.`AlipayAuth`,d.`JDAccount`,d.`JDAuth` ,d.chsiAccount,e.bankAccount,e.bank,e.subBank
+      FROM TBL_USER_INFO a
+       LEFT JOIN  TBL_USER_CONTACTS b ON   a.phone=b.phone
+       LEFT JOIN TBL_REPUTATION_DETAIL d  ON  a.phone=d.phone
+       left  join    TBL_BANK_INFO  e on a.phone=e.phone
+       WHERE a.phone=#{phone}
+	</select>
+
+	<insert id="insertUserInfo"  parameterType="com.example.demo.entity.UserInfo">
+		INSERT INTO
+		tbl_user_info(NAME,phone,
+		IDCard,school,
+		schoolAddr,education,
+	    qq,webchat)
+		VALUES
+		(#{name},#{phone},
+		#{idCard},#{school},
+		#{schoolAddr},#{education},
+		#{qq},#{webchat})
+	</insert>
+	<delete id="deleteUserInfo"     >
+		DELETE  from tbl_user_info where phone =#{phone}
+	</delete>
+</mapper>
+    

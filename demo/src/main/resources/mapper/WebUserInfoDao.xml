@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.WebUserInfoDao">
+	<select id="webLogin" resultType="java.lang.Integer" parameterType="com.example.demo.entity.WebUserInfo">
+		select COUNT(*) from tbl_web_userInfo where account=#{account} and password=#{passWord}
+	</select>
+
+	<insert id="updateMangerInfo"  parameterType="com.example.demo.entity.WebUserInfo">
+	  UPDATE    tbl_web_userInfo set password=#{newPassWord} where account=#{account} and password=#{passWord}
+	</insert>
+</mapper>
+    

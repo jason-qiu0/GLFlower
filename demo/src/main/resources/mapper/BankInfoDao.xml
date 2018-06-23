@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BankInfoDao">
+	<insert id="saveBank" parameterType="com.example.demo.entity.BankInfo">
+    	INSERT INTO tbl_bank_info(phone,bankAccount,bank,subBank)VALUES
+			(#{phone},#{bankAccount},#{bank},#{subBank})
+	</insert>
+
+	<select id="getBankInfo"   resultType="com.example.demo.entity.BankInfo">
+		 SELECT   phone, bankAccount, bank,subBank FROM    tbl_bank_info where phone=#{phone}
+	</select>
+	<delete id="deleteBankinfo"   >
+		DELETE  FROM  tbl_bank_info where phone=#{phone}
+	</delete>
+
+
+
+
+
+</mapper>
+    

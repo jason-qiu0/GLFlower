@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.ReputaTionInfoDao">
+	<insert id="SaveReputationDetailOne" parameterType="com.example.demo.entity.ReputaTionInfo">
+    	INSERT INTO tbl_reputation_detail(phone,chsiAccount)VALUES
+    	(#{phone},#{chsiAccount})
+	</insert>
+
+	<update id="SaveReputationDetail" parameterType="com.example.demo.entity.ReputaTionInfo">
+	    	 update  tbl_reputation_detail set
+	    	 flag=#{flag}, alipayAccount=#{alipayAccount} ,jdAccount=#{jdAccount}
+	    	 where phone=#{phone}
+		</update>
+
+	<select id="GetReputationDetail"   resultType="com.example.demo.entity.ReputaTionInfo">
+		select phone,flag,alipayAccount,jdAccount   from  tbl_reputation_detail  where   phone=#{phone} and phone=#{phone}
+	</select>
+
+	<delete id="deleteReputationDetail" >
+		DELETE  from tbl_reputation_detail where phone=#{phone}
+	</delete>
+
+
+
+
+</mapper>
+    

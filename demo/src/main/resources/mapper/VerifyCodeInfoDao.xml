@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.VerifyCodeDao">
+	<insert id="insertVerifyCode" parameterType="com.example.demo.entity.VerifyCodeInfo">
+    	INSERT INTO tbl_verify_Code(phone,verifyCode,imeiVerifyCode)VALUES
+    	(#{phone},#{verifyCode},#{imeiVerifyCode})
+	</insert>
+
+	<delete id="deletedVerifyCode"   parameterType="com.example.demo.entity.VerifyCodeInfo">
+	     DELETE  from   tbl_verify_Code where phone= #{phone}
+	</delete>
+
+	<select id="selectVerifyCode"  resultType="com.example.demo.entity.VerifyCodeInfo">
+		SELECT phone,idCard,verifyCode, imeiVerifyCode from   tbl_verify_Code where phone=#{phone}
+		</select>
+
+
+</mapper>
+    

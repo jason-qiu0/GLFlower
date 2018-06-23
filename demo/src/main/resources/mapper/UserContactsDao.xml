@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserContactsDao">
+	<update id="updateUserContacts" parameterType="com.example.demo.entity.UserContacts">
+		update  tbl_user_contacts set contactName1=#{contactName1}, relation1=#{relation1},  contactPhone1=#{contactPhone1} ,
+		  contactName2=#{contactName2}, relation2=#{relation2},  contactPhone2=#{contactPhone2}
+		WHERE phone=#{phone}
+	</update>
+	<select id="selectUserContacts" resultType="java.lang.Integer" parameterType="com.example.demo.entity.UserContacts">
+			select count(*) from   tbl_user_contacts    WHERE phone=#{phone}
+		</select>
+	<insert id="insertUserContacts" useGeneratedKeys="true"  parameterType="com.example.demo.entity.UserContacts">
+		INSERT INTO
+		tbl_user_contacts(phone,
+		IDCard,contactName1,relation1,contactPhone1,
+		contactName2,relation2,contactPhone2,vendorPwd)
+		VALUES
+		(#{phone},#{idCard},
+		#{contactName1},#{relation1},#{contactPhone1},
+		#{contactName2},#{relation2},#{contactPhone2},#{vendorPwd})
+	</insert>
+
+	<select id="GetContacts"  resultType="com.example.demo.entity.UserContacts">
+	SELECT   IDCard,phone,contactName1,relation1,contactPhone1,contactName2,relation2,contactPhone2,vendorPwd  from tbl_user_contacts    where    phone=#{phone}
+	</select>
+</mapper>
+    
