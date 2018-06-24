@@ -10,59 +10,58 @@ public class UserReputationBase {
     }
 
     public String getAlipayAccount() {
-        return AlipayAccount;
+        return alipayAccount;
     }
 
     public void setAlipayAccount(String alipayAccount) {
-        this.AlipayAccount = alipayAccount;
+        this.alipayAccount = alipayAccount;
     }
 
     public String getAlipayPwd() {
-        return AlipayPwd;
+        return alipayPwd;
     }
 
     public void setAlipayPwd(String alipayPwd) {
-        this.AlipayPwd = alipayPwd;
+        this.alipayPwd = alipayPwd;
     }
 
     public String getAlipayAuthFlag() {
-        return AlipayAuthFlag;
+        return alipayAuthFlag;
     }
 
     public void setAlipayAuthFlag(String alipayAuthFlag) {
-        this.AlipayAuthFlag = alipayAuthFlag;
+        this.alipayAuthFlag = alipayAuthFlag;
     }
 
-    public String getJDAccount() {
-        return JDAccount;
+    public String getJdAccount() {
+        return jdAccount;
     }
 
-    public void setJDAccount(String jdAccount) {
-        this.JDAccount = jdAccount;
+    public void setJdAccount(String jdAccount) {
+        this.jdAccount = jdAccount;
     }
 
-    public String getJDPwd() {
-        return JDPwd;
+    public String getJdPwd() {
+        return jdPwd;
     }
 
-    public void setJDPwd(String jdPwd) {
-        this.JDPwd = jdPwd;
+    public void setJdPwd(String jdPwd) {
+        this.jdPwd = jdPwd;
     }
 
-    public String getJDAuthFlag() {
-        return JDAuthFlag;
+    public String getJdAuthFlag() {
+        return jdAuthFlag;
     }
 
-    public void setJDAuthFlag(String jdAuthFlag) {
-        this.JDAuthFlag = jdAuthFlag;
-        this.JDAuthFlag = jdAuthFlag;
+    public void setJdAuthFlag(String jdAuthFlag) {
+        this.jdAuthFlag = jdAuthFlag;
     }
 
     private String phone;
-    private String AlipayAccount;
-    private String AlipayPwd;
-    private String AlipayAuthFlag;
-    private String JDAccount;
-    private String JDPwd;
-    private String JDAuthFlag;
+    private String alipayAccount;
+    private String alipayPwd;
+    private String alipayAuthFlag;
+    private String jdAccount;
+    private String jdPwd;
+    private  String jdAuthFlag;
 }

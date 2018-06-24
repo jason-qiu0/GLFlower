@@ -5,7 +5,7 @@
 <mapper namespace="com.example.demo.dao.UserReputationDao">
 	<insert id="saveUserReputationBase" parameterType="com.example.demo.entity.UserReputationBase">
     	INSERT INTO tbl_user_reputation_base (phone,AlipayAccount,AlipayPwd,AlipayAuthFlag,JDAccount, JDPwd, JDAuthFlag)VALUES
-			(#{phone},#{AlipayAccount},#{AlipayPwd},#{AlipayAuthFlag}, #{JDAccount}, #{JDPwd}, #{JDAuthFlag})
+			(#{phone},#{alipayAccount},#{alipayPwd},#{alipayAuthFlag}, #{jdAccount}, #{jdPwd}, #{jdAuthFlag})
 	</insert>
 
 	<select id="getUserReputationBase"   resultType="com.example.demo.entity.UserReputationBase">
@@ -13,9 +13,9 @@
 	</select>
 
 	<update id="updateUserReputationBase"  parameterType="com.example.demo.entity.UserReputationBase">
-		 UPDATE tbl_user_reputation_base SET AlipayAccount=#{AlipayAccount}, AlipayPwd=#{AlipayPwd},
-		 AlipayAuthFlag=#{AlipayAuthFlag}, JDAccount=#{JDAccount}, JDPwd=#{JDPwd},
-		 JDAuthFlag=#{JDAuthFlag} where phone=#{phone}
+		 UPDATE tbl_user_reputation_base SET AlipayAccount=#{alipayAccount}, AlipayPwd=#{alipayPwd},
+		 AlipayAuthFlag=#{alipayAuthFlag}, JDAccount=#{jdAccount}, JDPwd=#{jdPwd},
+		 JDAuthFlag=#{jdAuthFlag} where phone=#{phone}
 	</update>
 
 	<delete id="deleteUserReputationBase">
