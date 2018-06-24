@@ -33,7 +33,7 @@ public class UserInfoController {
 	@Autowired
 	private IBankInfoService bankInfoService;
 	@Autowired
-		private IReputaTionInfoService iReputaTionInfoService;
+	private IReputaTionInfoService iReputaTionInfoService;
 
 	/**
 	 * 获取所有的区域信息

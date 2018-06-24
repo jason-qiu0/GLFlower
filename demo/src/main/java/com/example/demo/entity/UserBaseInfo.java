@@ -54,7 +54,7 @@ public class UserBaseInfo {
     }
 
     public void setChsiPwd(String chsiPwd) {
-        this.chsiPwd = chsiPwd;
+//        this.chsiPwd = chsiPwd;
     }
 
     private String name;

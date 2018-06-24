@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserCompanyInfoDao">
+	<insert id="saveUserCompanyInfo" parameterType="com.example.demo.entity.UserCompanyInfo">
+    	INSERT INTO tbl_company_info_base (phone,companyName,companyAddress,companyLeaderPhone)VALUES
+			(#{phone},#{companyName},#{companyAddress},#{companyLeaderPhone})
+	</insert>
+
+	<select id="getUserCompanyInfo"   resultType="com.example.demo.entity.UserCompanyInfo">
+		 SELECT * FROM    tbl_company_info_base where phone=#{phone}
+	</select>
+
+	<update id="updateUserCompanyInfo"  parameterType="com.example.demo.entity.UserCompanyInfo">
+		 UPDATE tbl_company_info_base SET companyName=#{companyName}, companyAddress=#{companyAddress},
+		 companyLeaderPhone=#{companyLeaderPhone} where phone=#{phone}
+	</update>
+
+	<delete id="deleteUserCompanyInfo">
+		DELETE  FROM  tbl_company_info_base where phone=#{phone}
+	</delete>
+
+
+
+
+
+</mapper>
+    

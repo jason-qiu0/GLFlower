@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserContactsBaseDao">
+	<insert id="saveUserContactsBase" parameterType="com.example.demo.entity.UserContactsBase">
+    	INSERT INTO tbl_user_contacts_base (phone,contactName1,contactPhone1,contactName2,contactPhone2)VALUES
+			(#{phone},#{contactName1},#{contactPhone1},#{contactName2}, #{contactPhone2})
+	</insert>
+
+	<select id="getUserContactsBase"   resultType="com.example.demo.entity.UserContactsBase">
+		 SELECT * FROM    tbl_user_contacts_base where phone=#{phone}
+	</select>
+
+	<update id="updateUserContactsBase"  parameterType="com.example.demo.entity.UserContactsBase">
+		 UPDATE tbl_user_contacts_base SET contactName1=#{contactName1}, contactPhone1=#{contactPhone1},
+		 contactName2=#{contactName2}, contactPhone2=#{contactPhone2} where phone=#{phone}
+	</update>
+
+	<delete id="deleteUserContactsBase">
+		DELETE  FROM  tbl_user_contacts_base where phone=#{phone}
+	</delete>
+
+
+
+
+
+</mapper>
+    

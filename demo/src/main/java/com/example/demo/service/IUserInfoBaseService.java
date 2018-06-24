@@ -1,12 +1,13 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.UserBaseInfo;
-
 public interface IUserInfoBaseService {
 
-    boolean addUserRecord(UserBaseInfo userInfo);
+    public boolean saveUserBaseInfo(UserBaseInfo userInfo);
 
-    boolean updateUserRecord(UserBaseInfo userInfo);
+    public  boolean updateUserBaseInfo(UserBaseInfo userInfo);
 
-    UserBaseInfo getUserBaseInfoByPhone(String phone);
+    public  UserBaseInfo getUserBaseInfo(String phone);
+
+    public  boolean deleteUserBaseInfo(String phone);
 }

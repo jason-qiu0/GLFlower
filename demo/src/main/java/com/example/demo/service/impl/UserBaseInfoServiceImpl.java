@@ -14,21 +14,25 @@ public class UserBaseInfoServiceImpl implements IUserInfoBaseService {
     private UserBaseInfoDao userBaseInfoDao;
 
     @Override
-    public UserBaseInfo getUserBaseInfoByPhone(String phone)
+    public UserBaseInfo getUserBaseInfo(String phone)
     {
-        return userBaseInfoDao.queryUserBaseInfoByPhone(phone);
+        return userBaseInfoDao.getUserBaseInfo(phone);
     }
 
     @Transactional
     @Override
-    public boolean addUserRecord(UserBaseInfo userInfo)
+    public boolean saveUserBaseInfo(UserBaseInfo userInfo)
     {
-        return userBaseInfoDao.addUserRecord(userInfo);
+        return userBaseInfoDao.saveUserBaseInfo(userInfo);
     }
 
     @Transactional
     @Override
-    public boolean updateUserRecord(UserBaseInfo userInfo){
-        return userBaseInfoDao.updateUserRecord(userInfo);
+    public boolean updateUserBaseInfo(UserBaseInfo userInfo){
+        return userBaseInfoDao.updateUserBaseInfo(userInfo);
     }
+
+    @Transactional
+    @Override
+    public  boolean deleteUserBaseInfo(String phone){return userBaseInfoDao.deleteUserBaseInfo(phone);}
 }

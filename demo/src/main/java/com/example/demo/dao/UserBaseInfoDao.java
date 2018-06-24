@@ -3,9 +3,11 @@ package com.example.demo.dao;
 import com.example.demo.entity.UserBaseInfo;
 
 public interface UserBaseInfoDao {
-    boolean addUserRecord(UserBaseInfo userBaseInfo);
+    boolean saveUserBaseInfo(UserBaseInfo userBaseInfo);
 
-    boolean updateUserRecord(UserBaseInfo userBaseInfo);
+    boolean updateUserBaseInfo(UserBaseInfo userBaseInfo);
 
-    UserBaseInfo queryUserBaseInfoByPhone(String phone);
+    UserBaseInfo getUserBaseInfo(String phone);
+
+    boolean deleteUserBaseInfo(String phone);
 }
