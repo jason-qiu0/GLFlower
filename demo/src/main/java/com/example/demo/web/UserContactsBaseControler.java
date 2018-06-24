@@ -43,7 +43,7 @@ public class UserContactsBaseControler {
         }
         else
         {
-            if(iUserContactsBaseService.saveUserContactsBase(info)) {
+            if(iUserContactsBaseService.updateUserContactsBase(info)) {
                 result = PublicMacroDefinition.RESPONSE_FLAGE_SUCCESS;
                 message = PublicMacroDefinition.RESPONSE_MESSAGE_UPDATE_SUCCESS;
             }else{
