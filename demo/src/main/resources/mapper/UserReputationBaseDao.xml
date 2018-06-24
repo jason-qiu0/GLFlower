@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserReputationDao">
+	<insert id="saveUserReputationBase" parameterType="com.example.demo.entity.UserReputationBase">
+    	INSERT INTO tbl_user_reputation_base (phone,AlipayAccount,AlipayPwd,AlipayAuthFlag,JDAccount, JDPwd, JDAuthFlag)VALUES
+			(#{phone},#{AlipayAccount},#{AlipayPwd},#{AlipayAuthFlag}, #{JDAccount}, #{JDPwd}, #{JDAuthFlag})
+	</insert>
+
+	<select id="getUserReputationBase"   resultType="com.example.demo.entity.UserReputationBase">
+		 SELECT * FROM    tbl_user_reputation_base where phone=#{phone}
+	</select>
+
+	<update id="updateUserReputationBase"  parameterType="com.example.demo.entity.UserReputationBase">
+		 UPDATE tbl_user_reputation_base SET AlipayAccount=#{AlipayAccount}, AlipayPwd=#{AlipayPwd},
+		 AlipayAuthFlag=#{AlipayAuthFlag}, JDAccount=#{JDAccount}, JDPwd=#{JDPwd},
+		 JDAuthFlag=#{JDAuthFlag} where phone=#{phone}
+	</update>
+
+	<delete id="deleteUserReputationBase">
+		DELETE  FROM  tbl_user_reputation_base where phone=#{phone}
+	</delete>
+
+
+
+
+
+</mapper>
+    
