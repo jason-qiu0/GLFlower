@@ -161,6 +161,8 @@ CREATE TABLE `tbl_user_contacts_base` (
 
 /*Data for the table `tbl_user_contacts_base` */
 
+insert  into `tbl_user_contacts_base`(`phone`,`contactName1`,`contactPhone1`,`contactName2`,`contactPhone2`) values ('1234',NULL,NULL,NULL,NULL);
+
 /*Table structure for table `tbl_user_info` */
 
 DROP TABLE IF EXISTS `tbl_user_info`;
@@ -197,6 +199,24 @@ CREATE TABLE `tbl_user_info_base` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tbl_user_info_base` */
+
+/*Table structure for table `tbl_user_reputation_base` */
+
+DROP TABLE IF EXISTS `tbl_user_reputation_base`;
+
+CREATE TABLE `tbl_user_reputation_base` (
+  `phone` varchar(11) NOT NULL,
+  `AlipayAccount` varchar(50) DEFAULT NULL,
+  `AlipayPwd` varchar(50) DEFAULT NULL,
+  `AlipayAuthFlag` varchar(2) DEFAULT NULL,
+  `JDAccount` varchar(50) DEFAULT NULL,
+  `JDPwd` varchar(50) DEFAULT NULL,
+  `JDAuthFlag` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `tbl_user_reputation_base` */
+
+insert  into `tbl_user_reputation_base`(`phone`,`AlipayAccount`,`AlipayPwd`,`AlipayAuthFlag`,`JDAccount`,`JDPwd`,`JDAuthFlag`) values ('1234',NULL,NULL,NULL,NULL,NULL,NULL),('1234w',NULL,NULL,NULL,NULL,NULL,NULL),('12324w',NULL,NULL,NULL,NULL,NULL,NULL),('123234w',NULL,NULL,NULL,NULL,NULL,NULL),('1232324w',NULL,NULL,NULL,NULL,NULL,NULL),('12323224w','wuhan','zhongguo','1',NULL,NULL,NULL),('123232w24w','wuhan','zhongguo','1',NULL,NULL,NULL),('1232322w24w','wuhan','zhongguo','1',NULL,NULL,NULL),('1232334w','wuhan','zhongguo','1',NULL,NULL,NULL),('12323334w',NULL,'zhongguo','1',NULL,NULL,NULL),('123233234w','wuhan','zhongguo','1',NULL,NULL,NULL),('1232333234w','wuhan','zhongguo','1','zhongguo','222','2');
 
 /*Table structure for table `tbl_verify_code` */
 
